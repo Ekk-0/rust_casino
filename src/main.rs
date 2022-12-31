@@ -1,13 +1,10 @@
 // Dev: Eben 31/12/2022, Blackjack game written in RUST
-
-extern crate rand;
-extern crate serde;
 use rand::Rng;
 use serde::{Deserialize, Serialize};
 use std::{
-    fs::{self, File},
+    fs::{File, self},
     io::Result,
-    io::{self, ErrorKind},
+    io::{ErrorKind, self},
 };
 
 #[derive(Serialize, Deserialize)]
@@ -126,7 +123,7 @@ fn start(user: &mut User) {
 
     if user.money < 0 {
         println!("Please Deposit Money");
-        return
+        return;
     }
 
     let mut response = String::new();
@@ -136,7 +133,7 @@ fn start(user: &mut User) {
 
     if bet > user.money {
         println!("Insufficient funds for bet!");
-        return
+        return;
     }
 
     let mut rng = rand::thread_rng();
@@ -167,7 +164,6 @@ fn start(user: &mut User) {
                 break;
             }
 
-
             println!("Options:\n\r1.hit\n\r2. stand\n\r3. double\n\r4. fold");
             let mut response = String::new();
             io::stdin().read_line(&mut response).unwrap();
@@ -177,23 +173,23 @@ fn start(user: &mut User) {
             match x {
                 1 => {
                     your_number += rng.gen_range(0..=11);
-                },
+                }
                 2 => {
                     break;
-                },
+                }
                 3 => {
                     your_number += rng.gen_range(0..=11);
                     bet *= 2;
-                },
+                }
                 4 => {
                     fold = true;
                     break;
-                },
+                }
                 _ => {
                     println!("Wrong Option");
                 }
             };
-            
+
             if your_number > 21 {
                 lose = true;
                 break;
@@ -208,11 +204,11 @@ fn start(user: &mut User) {
                 if dealer_number > your_number {
                 } else {
                     won = true;
-                    break
+                    break;
                 }
-            },
+            }
             _ => {
-                if dealer_number == your_number  && dealer_number > 17 {
+                if dealer_number == your_number && dealer_number > 17 {
                     println!("Draw!");
                     break;
                 }
