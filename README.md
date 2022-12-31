@@ -10,6 +10,7 @@ ___
 ```
 ___
 ## Next:
+_Open the terminal and navigate to that folder the run:_
 ``` rust
     cargo run
 ```
