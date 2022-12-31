@@ -1,5 +1,7 @@
 // Dev: Eben 31/12/2022, Blackjack game written in RUST
 
+extern crate rand;
+extern crate serde;
 use rand::Rng;
 use serde::{Deserialize, Serialize};
 use std::{
