@@ -164,7 +164,7 @@ fn start(user: &mut User) {
                 break;
             }
 
-            println!("Options:\n\r1.hit\n\r2. stand\n\r3. double\n\r4. fold");
+            println!("Options:\n\r1. Hit\n\r2. Stand\n\r3. Double\n\r4. Fold");
             let mut response = String::new();
             io::stdin().read_line(&mut response).unwrap();
 
@@ -227,6 +227,7 @@ fn start(user: &mut User) {
             }
         }
     }
+
     if lose {
         println!("You lost!");
         println!(
@@ -368,7 +369,7 @@ fn login(current_user: &mut User) -> bool {
     if _r.is_ok() {
         return true;
     } else {
-        println!("{:?}", _r);
+        println!("User not found!");
         return false;
     }
 }
